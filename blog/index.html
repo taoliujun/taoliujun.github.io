@@ -68,10 +68,10 @@
         
           <a class="nav-icon" href="/blog/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
         
-        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://taoliujun.github.io/blog"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://taoliujun.github.io/blog"></form>
       </div>
     </div>
   </div>
@@ -80,14 +80,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-你好" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-Github Actions/6. Managing workflow runs" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/blog/hello_post_title1/" class="article-date">
-  <time class="dt-published" datetime="2022-12-11T16:00:00.000Z" itemprop="datePublished">2022-12-12</time>
+    <a href="/blog/github-actions-managing-workflow-runs/" class="article-date">
+  <time class="dt-published" datetime="2022-07-08T16:00:00.000Z" itemprop="datePublished">2022-07-09</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/%E9%9A%8F%E6%83%B3/">随想</a>
+    <a class="article-category-link" href="/blog/categories/%E6%9E%B6%E6%9E%84/">架构</a>
   </div>
 
   </div>
@@ -98,7 +98,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/blog/hello_post_title1/">你好世界</a>
+      <a class="p-name article-title" href="/blog/github-actions-managing-workflow-runs/">6. Managing workflow runs - GitHub Actions</a>
     </h1>
   
 
@@ -106,28 +106,474 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <p>官方文档：<a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/using-workflows/manually-running-a-workflow">https://docs.github.com/en/actions/using-workflows/manually-running-a-workflow</a></p>
+<h2 id="手动执行"><a href="#手动执行" class="headerlink" title="手动执行"></a>手动执行</h2><p>设置<code>event</code>包含<code>workflow_dispatch</code>，可以手动触发，使用 Github CLI、Browser 都可以，文档中呈现了一个流程图示例。</p>
+<h2 id="重复执行"><a href="#重复执行" class="headerlink" title="重复执行"></a>重复执行</h2><p>无</p>
+<h2 id="取消执行"><a href="#取消执行" class="headerlink" title="取消执行"></a>取消执行</h2><p>无</p>
+<h2 id="审批执行"><a href="#审批执行" class="headerlink" title="审批执行"></a>审批执行</h2><p>对于 pull request，可以设置审批执行以防止浪费 actions 资源。</p>
+<h2 id="审查部署"><a href="#审查部署" class="headerlink" title="审查部署"></a>审查部署</h2><p>无</p>
+<h2 id="开关-workflow"><a href="#开关-workflow" class="headerlink" title="开关 workflow"></a>开关 workflow</h2><p>无</p>
+<h2 id="跳过-workflow"><a href="#跳过-workflow" class="headerlink" title="跳过 workflow"></a>跳过 workflow</h2><p>在 commit message 中加入关键词可以跳过 workflow，只对 push、pull_request 事件有效。关键词有：</p>
+<ul>
+<li>[skip ci]</li>
+<li>[ci skip]</li>
+<li>[no ci]</li>
+<li>[skip actions]</li>
+<li>[actions skip]</li>
+</ul>
+<p>也可以在 message 后空两行，然后加入关键词：</p>
+<ul>
+<li>skip-checks:true</li>
+<li>skip-checks: true</li>
+</ul>
+<h2 id="删除-workflow"><a href="#删除-workflow" class="headerlink" title="删除 workflow"></a>删除 workflow</h2><p>无</p>
+<h2 id="下载-workflow-归档"><a href="#下载-workflow-归档" class="headerlink" title="下载 workflow 归档"></a>下载 workflow 归档</h2><p>可以下载 90 天内的 workflow 归档，操作参考文档。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://taoliujun.github.io/blog/hello_post_title1/" data-id="cljp635wa00006brr3vjn10q9" data-title="你好世界" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://taoliujun.github.io/blog/github-actions-managing-workflow-runs/" data-id="cljpap02e000exbrrc80vakuy" data-title="6. Managing workflow runs - GitHub Actions" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/hello/" rel="tag">hello</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/ci/" rel="tag">ci</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/github-actions/" rel="tag">github actions</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Github Actions/5. Using jobs" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/github-actions-using-jobs/" class="article-date">
+  <time class="dt-published" datetime="2022-07-07T16:00:00.000Z" itemprop="datePublished">2022-07-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/%E6%9E%B6%E6%9E%84/">架构</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/github-actions-using-jobs/">5. Using jobs - GitHub Actions</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>官方文档：<a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow">https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow</a></p>
+<h2 id="使用-jobs"><a href="#使用-jobs" class="headerlink" title="使用 jobs"></a>使用 jobs</h2><ul>
+<li>jobs 组成 workflow，jobs 默认并行执行，使用 needs 管理依赖执行。</li>
+<li>job id 命名要唯一，由字母、数字、-、_组成。</li>
+</ul>
+<h2 id="使用-runner"><a href="#使用-runner" class="headerlink" title="使用 runner"></a>使用 runner</h2><p>可以使用 github 提供的机器，也可以自建机器，没啥其他重要的。</p>
+<h2 id="执行条件"><a href="#执行条件" class="headerlink" title="执行条件"></a>执行条件</h2><p>执行 if 表达式的结果，决定是否执行本 job。举例：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">example-workflow</span></span><br><span class="line"><span class="attr">on:</span> [<span class="string">push</span>]</span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">production-deploy:</span></span><br><span class="line">    <span class="attr">if:</span> <span class="string">github.repository</span> <span class="string">==</span> <span class="string">&#x27;octo-org/octo-repo-prod&#x27;</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/setup-node@v3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&quot;14&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">-g</span> <span class="string">bats</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h2><p>晦涩的词语，理解为遍历变量创建重复执行的 job，如下，该 job 将执行 6 次，在两个 runner 上分别执行 3 种 node 版本的 job。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">example_matrix:</span></span><br><span class="line">    <span class="attr">strategy:</span></span><br><span class="line">      <span class="attr">matrix:</span></span><br><span class="line">        <span class="attr">os:</span> [<span class="string">ubuntu-22.04</span>, <span class="string">ubuntu-20.04</span>]</span><br><span class="line">        <span class="attr">version:</span> [<span class="number">10</span>, <span class="number">12</span>, <span class="number">14</span>]</span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">$&#123;&#123;</span> <span class="string">matrix.os</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/setup-node@v3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">$&#123;&#123;</span> <span class="string">matrix.version</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>也可以使用上下文创建 matrix 变量。</p>
+<p>matrix 还支持自身简单的覆盖扩展，参考文档即可。</p>
+<h2 id="并发策略"><a href="#并发策略" class="headerlink" title="并发策略"></a>并发策略</h2><p>同时只能运行一个符合策略的 job 或 workflow，并决定是否终止同组的 job 或 workflow。</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>无</p>
+<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><p>暂时用不到，无</p>
+<h2 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h2><p>可以在 workflow 和 job 级别分别设置默认值，目前支持设置<code>shell</code>、<code>working-directory</code>。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taoliujun.github.io/blog/github-actions-using-jobs/" data-id="cljpap02a0003xbrrh0tkbbvj" data-title="5. Using jobs - GitHub Actions" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/ci/" rel="tag">ci</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/github-actions/" rel="tag">github actions</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Github Actions/4. Using workflows" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/github-actions-using-workflows/" class="article-date">
+  <time class="dt-published" datetime="2022-07-06T16:00:00.000Z" itemprop="datePublished">2022-07-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/%E6%9E%B6%E6%9E%84/">架构</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/github-actions-using-workflows/">4. Using workflows - GitHub Actions</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>官方文档：<a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/using-workflows/about-workflows">https://docs.github.com/en/actions/using-workflows/about-workflows</a></p>
+<p>原文很长，但随着对 Github Actions 的了解，笔记也会越来越短。</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>更详细介绍了 workflow 的构成，没啥特别重要点。</p>
+<h2 id="触发"><a href="#触发" class="headerlink" title="触发"></a>触发</h2><p>再次复习下触发的几种情况：github、计划任务、手动。</p>
+<h3 id="Branches-过滤"><a href="#Branches-过滤" class="headerlink" title="Branches 过滤"></a>Branches 过滤</h3><p>可以通过 branches 、branches-ignore 过滤或排除分支，支持 glob patterns。还可以在 branches 前面用!修饰为“非”。比如：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;releases/**&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;!releases/**-alpha&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Tags-过滤"><a href="#Tags-过滤" class="headerlink" title="Tags 过滤"></a>Tags 过滤</h3><p>对于 tags 的过滤处理和 branches 是一致的，只是修改了名字为 tags、tags-ignore。</p>
+<h3 id="Types-过滤"><a href="#Types-过滤" class="headerlink" title="Types 过滤"></a>Types 过滤</h3><p>可以理解为事件的具体行为，比如 issue_commot 事件的 created 行为。</p>
+<h3 id="Paths-过滤"><a href="#Paths-过滤" class="headerlink" title="Paths 过滤"></a>Paths 过滤</h3><p>文件路径过滤也是基本功能了，使用 paths、paths-ignore 处理，举例：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">paths:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;**.js</span></span><br></pre></td></tr></table></figure>
+
+<p>注意，一些过滤场景并不允许 a 和 a-ignore 一起使用，需要注意的。</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li>还可以对 input 进行参数过滤，以满足更丰富的触发条件配置。</li>
+<li>对 github 的属性，如 pull request 发起人的名字进行过滤。</li>
+</ul>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>列举了常见的 30 几种事件，大部分事件包含多种行为。</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>涵盖了 workflow 的大部分配置项。</p>
+<h2 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h2><p>actions 如何和 bash 交换变量，使用 actions&#x2F;toolkit 可以简单做到。</p>
+<h2 id="复用"><a href="#复用" class="headerlink" title="复用"></a>复用</h2><p>注意复用的上下文</p>
+<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>可以缓存 npm 的依赖以节省 install 的时间，注意缓存的跨分支适用策略。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taoliujun.github.io/blog/github-actions-using-workflows/" data-id="cljpap02c0005xbrre1gg0q6s" data-title="4. Using workflows - GitHub Actions" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/ci/" rel="tag">ci</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/github-actions/" rel="tag">github actions</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Github Actions/3. Examples" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/github-actions-examples/" class="article-date">
+  <time class="dt-published" datetime="2022-07-05T16:00:00.000Z" itemprop="datePublished">2022-07-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/%E6%9E%B6%E6%9E%84/">架构</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/github-actions-examples/">3. Examples - GitHub Actions</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>官方文档：<a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/examples/using-scripts-to-test-your-code-on-a-runner">https://docs.github.com/en/actions/examples/using-scripts-to-test-your-code-on-a-runner</a></p>
+<p>官方描述了 3 个例子，用来检测文件中的 broken，我读书少，就依葫芦画瓢写一个 eslint 检测增量文件的功能，完成以下功能：</p>
+<ul>
+<li>pull_request 触发 workflow。</li>
+<li>使用 eslint 检查 pull request 的增量文件。</li>
+<li>如果检查失败，回复失败的文件和内容。</li>
+<li>如果检查成功，回复”+LGTM by eslint”。</li>
+</ul>
+<p>例子中一些术语或属性是第一次出现，先不要管，简单查阅下文档先完成功能，后续文章再研究它们。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li><code>package.json</code>中存在<code>eslint</code>依赖。</li>
+<li>存在配置文件 <code>.eslintrc.js</code>。</li>
+</ul>
+<h2 id="基础的配置"><a href="#基础的配置" class="headerlink" title="基础的配置"></a>基础的配置</h2><p>写一个简单的 Job 让它先跑起来：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">pull_request</span></span><br><span class="line"><span class="attr">on:</span> <span class="string">pull_request</span></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">eslint:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">echo</span> <span class="string">&quot;i am eslint&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>##增量检查</p>
+<p>列出 pull request 的修改、新增的 js、ts 文件，先不用管 eslint，只打印出这些文件。</p>
+<p>TODO</p>
+<p><strong>等我学习了后续的知识，再来补充这个例子！！！</strong></p>
+<p><strong>等我学习了后续的知识，再来补充这个例子！！！</strong></p>
+<p><strong>等我学习了后续的知识，再来补充这个例子！！！</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taoliujun.github.io/blog/github-actions-examples/" data-id="cljpap02c0008xbrrgcou02ym" data-title="3. Examples - GitHub Actions" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/ci/" rel="tag">ci</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/github-actions/" rel="tag">github actions</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Github Actions/2. Learn GitHub Actions" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/github-actions-learn/" class="article-date">
+  <time class="dt-published" datetime="2022-07-04T16:00:00.000Z" itemprop="datePublished">2022-07-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/%E6%9E%B6%E6%9E%84/">架构</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/github-actions-learn/">2. Learn GitHub Actions - GitHub Actions</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>官方文档：<a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions">https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions</a></p>
+<p>官方文档有点长，阅读了两天，容易让人阅读瞌睡，除了要熟知术语部分，其他部分看一遍知道有这些东西就行了，回头使用的时候翻看官方文档即可。</p>
+<h2 id="理解-GitHub-Actions-和术语"><a href="#理解-GitHub-Actions-和术语" class="headerlink" title="理解 GitHub Actions 和术语"></a>理解 GitHub Actions 和术语</h2><p>GitHub Actions 就是通过事件触发工作流，在特定机器中执行一连串工作，每个工作中执行若干个步骤的脚本。</p>
+<p>使用人类行为来举例，我说：“老婆，你去炒个青椒炒肉丝吧。”</p>
+<ul>
+<li>口头说话（Events）会触发老婆的工作流（Workflows）：炒青椒肉丝。</li>
+<li>工作流包含了两个工作（Jobs）：配菜、炒菜。</li>
+<li>配菜工作包含多个步骤（Steps）：清洗青椒、切青椒丝、清洗猪肉、切猪肉丝。</li>
+<li>老婆有一个绞肉机（Actions），它可以完成切猪肉丝的工作而不需要关注细节。</li>
+</ul>
+<p>它包含了下面几个重要的术语。</p>
+<h3 id="Workflows（工作流）"><a href="#Workflows（工作流）" class="headerlink" title="Workflows（工作流）"></a>Workflows（工作流）</h3><p>项目有若干个工作流，它们在不同的事件时机触发。比如，口头说话触发炒青椒肉丝。</p>
+<p>工作流还可以互相引用。比如，做一顿晚饭工作流，包含了炒青椒肉丝工作流。</p>
+<h3 id="Events（事件）"><a href="#Events（事件）" class="headerlink" title="Events（事件）"></a>Events（事件）</h3><p>Github 提供了一系列触发工作流的事件，比如发起了 pull request，create issue，push commit。</p>
+<p>它还包括两种特殊的事件：</p>
+<ul>
+<li>手动触发，比如你想执行工作流看看全量 eslint 检测结果。</li>
+<li>计划任务，比如你想每月 30 号看看全量 eslint 检测结果。</li>
+</ul>
+<h3 id="Jobs（工作）"><a href="#Jobs（工作）" class="headerlink" title="Jobs（工作）"></a>Jobs（工作）</h3><p>Workflows 由多个 Jobs 组成。</p>
+<p>每个 Job 运行在<strong>同一机器上</strong>，执行很多步骤的脚本，脚本可以是自定义的 shell（比如自己切肉丝，要关注细节：使用什么刀，每个肉丝有多细），也可以是封装好的 Actions（比如绞肉机）。</p>
+<p><strong>步骤按顺序执行</strong>，可以共享数据，比如切青椒的步骤，可以读取到青椒清洗的农药残留数据。</p>
+<p><strong>工作还可以依赖</strong>，默认情况下，工作并行执行，但有些场景工作是依赖的，比如炒菜工作，要依赖于配菜工作的完成。</p>
+<h3 id="Actions（脚本动作封装）"><a href="#Actions（脚本动作封装）" class="headerlink" title="Actions（脚本动作封装）"></a>Actions（脚本动作封装）</h3><p>顾名思义，就是将通用的动作封装起来，方便整个宇宙的程序员去使用。比如绞肉机就是将切肉丝的动作封装了起来。</p>
+<p>可以在 Github Marketplace 中找到和分享 Actions.</p>
+<h3 id="Runners（运行的机器）"><a href="#Runners（运行的机器）" class="headerlink" title="Runners（运行的机器）"></a>Runners（运行的机器）</h3><p>工作流不能凭空执行，它也是运行在机器上的，它可以是虚拟机、docker 容器。Github 提供了 Ubuntu Linux、Microsoft Windows、MacOS 这几种机器来执行工作流，注意一个限制：<strong>一个机器同时只能执行一个 Job</strong>。</p>
+<p>如果官方的机器不能满足你，也可以自动自己的机器来跑工作流，后续会讲到。</p>
+<h2 id="使用-Actions"><a href="#使用-Actions" class="headerlink" title="使用 Actions"></a>使用 Actions</h2><p>上面说到 Actions 是脚本的封装，它可以是社区市场中的 Actions，也可以是自定义 Actions，甚至是一个 Docker 镜像。</p>
+<h3 id="Marketplace-方式"><a href="#Marketplace-方式" class="headerlink" title="Marketplace 方式"></a>Marketplace 方式</h3><p>Github 提供了界面操作，让我们可以方便的在工作流中维护 Actions，只要我们在浏览器中编辑 yml 文件，右侧就出现了 Actions 市场，可以点开某个 Actions，查看它的详细配置。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/taoliujun/taoliujun.github.io/assets/202306281126235.png"><br>​<br><img src="https://cdn.jsdelivr.net/gh/taoliujun/taoliujun.github.io/assets/202306281127958.png"></p>
+<p>对照着 Actions 的文档，我在 Workflow 中插入 node。现在，我的配置文件长这样：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">lint</span></span><br><span class="line"><span class="attr">on:</span> [<span class="string">push</span>]</span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">eslint:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Check</span> <span class="string">out</span> <span class="string">repository</span> <span class="string">code</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">use</span> <span class="string">node</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v3.3.0</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">latest</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">node</span> <span class="string">-v</span></span><br></pre></td></tr></table></figure>
+
+<p>然后，查看执行结果。<br>​<br><img src="https://cdn.jsdelivr.net/gh/taoliujun/taoliujun.github.io/assets/202306281127692.png"></p>
+<h3 id="自己的-Actions"><a href="#自己的-Actions" class="headerlink" title="自己的 Actions"></a>自己的 Actions</h3><p>还可以在自己的仓库里添加 Actions，这里就贴官方原例子了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">|-- root (repository)</span><br><span class="line">|   |__ .github</span><br><span class="line">|       └── workflows</span><br><span class="line">|           └── my-first-workflow.yml</span><br><span class="line">|       └── actions</span><br><span class="line">|           |__ hello-world-action</span><br><span class="line">|               └── action.yml</span><br></pre></td></tr></table></figure>
+
+<p>Example workflow file:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="comment"># This step checks out a copy of your repository.</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line">      <span class="comment"># This step references the directory that contains the action.</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">./.github/actions/hello-world-action</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="公共的-Actions"><a href="#公共的-Actions" class="headerlink" title="公共的 Actions"></a>公共的 Actions</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">uses:</span> <span class="string">actions/setup-node@v3</span></span><br></pre></td></tr></table></figure>
+
+<p>使用其他 Github 仓库的 Actions 就是如此简单，我们常使用的 actions&#x2F;***，其实也属于公共仓库，它们是由官方维护的一组 Actions，比较稳定。点击此处可以看到官方的 Actions。</p>
+<h3 id="Docker-镜像"><a href="#Docker-镜像" class="headerlink" title="Docker 镜像"></a>Docker 镜像</h3><p>如果 Runners 和开源 Actions 都不能满足你，可以搞 docker 来执行 Workflows。</p>
+<p>因本人的 docker 水平属于“哇，我能启动 docker，我真厉害”，就不展开讲了。</p>
+<h3 id="不同版本的-Actions"><a href="#不同版本的-Actions" class="headerlink" title="不同版本的 Actions"></a>不同版本的 Actions</h3><p>Actions 本质上是仓库里的文件，它会有版本区分，我们有好几种方法使用它：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用tag</span></span><br><span class="line"><span class="attr">uses:</span> <span class="string">actions/javascript-action@v1.0.1</span></span><br><span class="line"><span class="comment"># 使用commitID</span></span><br><span class="line"><span class="attr">uses:</span> <span class="string">actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89</span></span><br><span class="line"><span class="comment"># 使用branch</span></span><br><span class="line"><span class="attr">uses:</span> <span class="string">actions/javascript-action@main</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="基本特性"><a href="#基本特性" class="headerlink" title="基本特性"></a>基本特性</h2><p>这部分文档看的云里雾里的，讲了一些如何使用变量，如何在 Jobs 里共享数据，不知道这些内容出现在这里的目的是什么，略过。</p>
+<h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><p>支持在配置中使用表达式，我简单的记录了下，实际使用需要参照官方文档，它包含了以下。</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>支持<code>boolean</code>，<code>null</code>，<code>number</code>，<code>string</code> 类型。如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">env:</span></span><br><span class="line">  <span class="attr">myNull:</span> <span class="string">$&#123;&#123;</span> <span class="literal">null</span> <span class="string">&#125;&#125;</span></span><br><span class="line">  <span class="attr">myBoolean:</span> <span class="string">$&#123;&#123;</span> <span class="literal">false</span> <span class="string">&#125;&#125;</span></span><br><span class="line">  <span class="attr">myIntegerNumber:</span> <span class="string">$&#123;&#123;</span> <span class="number">711</span> <span class="string">&#125;&#125;</span></span><br><span class="line">  <span class="attr">myString:</span> <span class="string">Mona</span> <span class="string">the</span> <span class="string">Octocat</span></span><br><span class="line">  <span class="attr">myStringInBraces:</span> <span class="string">$&#123;&#123;</span> <span class="string">&#x27;It&#x27;</span><span class="string">&#x27;s open source!&#x27;</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h3><p>一些如值比较、逻辑与、逻辑或的操作，不一一列举了。</p>
+<p>注意不是强类型的比较，有一些值转换的逻辑。</p>
+<h3 id="内置方法"><a href="#内置方法" class="headerlink" title="内置方法"></a>内置方法</h3><p>提供了一些内置方法辅助表达式，比如 <code>contains</code> 判断是否包含某个字符，不一一列举了。</p>
+<h3 id="状态处理"><a href="#状态处理" class="headerlink" title="状态处理"></a>状态处理</h3><p>Jobs 的每个步骤会按顺序执行，我们可以在某个步骤中加入对“已经执行的步骤”的状态判断，来决定是否要执行当前步骤。比如，只有青椒清洗步骤成功了，才执行青椒切丝步骤。举例：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">steps:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="comment"># 前面的步骤都执行成功了，再执行该步骤</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">The</span> <span class="string">job</span> <span class="string">has</span> <span class="string">succeeded</span></span><br><span class="line">    <span class="attr">if:</span> <span class="string">$&#123;&#123;</span> <span class="string">success()</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>它还有以下几种状态结果：</p>
+<ul>
+<li><strong>always</strong>，只要执行了</li>
+<li><strong>success</strong>，执行成功了</li>
+<li><strong>cancelled</strong>，执行取消了</li>
+<li><strong>failure</strong>，执行失败了</li>
+</ul>
+<h2 id="上下文（重要）"><a href="#上下文（重要）" class="headerlink" title="上下文（重要）"></a>上下文（重要）</h2><p>上下文指工作流运行中可以访问的属性，你可以在<strong>表达式中</strong>访问上下文，比如访问当前仓库的地址<code>github.repositoryUrl</code>。它是<strong>job 串起来的重要保障</strong>。</p>
+<p>它提供了一组模块的上下文：github、env、job、steps、runner、needs 等等。</p>
+<p>如下演示了一个简单的上下文访问：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">CI</span></span><br><span class="line"><span class="attr">on:</span> <span class="string">push</span></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">prod-check:</span></span><br><span class="line">    <span class="attr">if:</span> <span class="string">$&#123;&#123;</span> <span class="string">github.ref</span> <span class="string">==</span> <span class="string">&#x27;refs/heads/main&#x27;</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">echo</span> <span class="string">&quot;hello $<span class="template-variable">&#123;&#123; github.actor &#125;&#125;</span>, branch is $GITHUB_REF&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>重要点：</p>
+<ul>
+<li>在不同的节点，上下文的可访问性有所不同，文档贴出了表格，这在使用的时候要注意。</li>
+<li>env 由内往外覆盖</li>
+</ul>
+<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p>还可以在 Workflows、Jobs、Steps 中设置和访问环境变量。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">lint</span></span><br><span class="line"><span class="attr">on:</span> [<span class="string">push</span>]</span><br><span class="line"><span class="attr">env:</span></span><br><span class="line">  <span class="attr">YOUR_NAME:</span> <span class="string">wang</span></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">eslint:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">env:</span></span><br><span class="line">      <span class="attr">YOUR_SEX:</span> <span class="string">boy</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">test</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">YOUR_AGE:</span> <span class="number">18</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">echo</span> <span class="string">&quot;Hello, $<span class="template-variable">&#123;&#123; env.YOUR_NAME &#125;&#125;</span>, your sex is $YOUR_SEX, your age is $YOUR_AGE&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>也提供一系列系统环境变量供访问，注意避开同名。</p>
+<h2 id="收费和限制"><a href="#收费和限制" class="headerlink" title="收费和限制"></a>收费和限制</h2><p>略</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taoliujun.github.io/blog/github-actions-learn/" data-id="cljpap02d000bxbrr9ylt7zc4" data-title="2. Learn GitHub Actions - GitHub Actions" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/ci/" rel="tag">ci</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/github-actions/" rel="tag">github actions</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Github Actions/1. Quickstart" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/github-actions-quickStart/" class="article-date">
+  <time class="dt-published" datetime="2022-07-03T16:00:00.000Z" itemprop="datePublished">2022-07-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/%E6%9E%B6%E6%9E%84/">架构</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/github-actions-quickStart/">1. Quickstart - GitHub Actions</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>官方文档：<a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/quickstart">https://docs.github.com/en/actions/quickstart</a></p>
+<p>本文里，因为还没有讲术语的意思，所以用中文描述了基本的执行过程，后续的文章里会用原术语来表达，以防理解不一。</p>
+<p>文档说，只要有仓库，就可以使用 Actions。</p>
+<p>依葫芦画瓢，在本地创建 <code>.github/workflows</code> 目录，在目录里创建任意文件，以.yml 结尾，我创建了 <code>lint.yml</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">lint</span></span><br><span class="line"><span class="attr">on:</span> [<span class="string">push</span>]</span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">eslint:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">echo</span> <span class="string">&quot;The job was automatically triggered by a $<span class="template-variable">&#123;&#123; github.event_name &#125;&#125;</span> event.&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Check</span> <span class="string">out</span> <span class="string">repository</span> <span class="string">code</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">List</span> <span class="string">files</span> <span class="string">in</span> <span class="string">the</span> <span class="string">repository</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">ls</span> <span class="string">$&#123;&#123;</span> <span class="string">github.workspace</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">echo</span> <span class="string">&quot;  This job&#x27;s status is $<span class="template-variable">&#123;&#123; job.status &#125;&#125;</span>.&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>配置文件有很多术语在后面的笔记中讲解，对于上面的配置简单的解释下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这个工作流的名字: lint</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">lint</span></span><br><span class="line"><span class="comment"># 在分支push的时候触发</span></span><br><span class="line"><span class="attr">on:</span> [<span class="string">push</span>]</span><br><span class="line"><span class="comment"># 工作列表，例子里只做一个eslint工作</span></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="comment"># 这一步工作名叫做eslint</span></span><br><span class="line">  <span class="attr">eslint:</span></span><br><span class="line">    <span class="comment"># 代码执行在ubuntu-latest的宿主里，注：ubuntu-latest是github提供的免费的宿主。</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="comment"># 执行哪些代码</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="comment"># 执行一个普通的shell脚本，就是 echo &#x27;巴拉巴拉巴拉巴拉一段话&#x27;，这段话里的$&#123;&#123;github.event_name&#125;&#125;</span></span><br><span class="line">      <span class="comment"># 是一个变量，这个变量由actions上下文提供，望文生义，event_name是事件名称的意思</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">echo</span> <span class="string">&quot;  The job was automatically triggered by a $<span class="template-variable">&#123;&#123; github.event_name &#125;&#125;</span> event.&quot;</span></span><br><span class="line">      <span class="comment"># 为这一步脚本定一个名字，叫做 巴拉巴拉</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Check</span> <span class="string">out</span> <span class="string">repository</span> <span class="string">code</span></span><br><span class="line">        <span class="comment"># 我们使用别人提供的封装好的脚本，这里的意思是使用官方提供的 actions/checkout 的脚本的v3版本</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line">      <span class="comment"># 又定义一个名字，叫做 巴拉巴拉</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">List</span> <span class="string">files</span> <span class="string">in</span> <span class="string">the</span> <span class="string">repository</span></span><br><span class="line">        <span class="comment"># 再一次运行自定义的脚本，列出目录结构，这儿又使用了一个变量</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">ls</span> <span class="string">$&#123;&#123;</span> <span class="string">github.workspace</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      <span class="comment"># 最后再执行一个自定义脚本，输出一段话，包含了当前工作的执行状态</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">echo</span> <span class="string">&quot;  This job&#x27;s status is $<span class="template-variable">&#123;&#123; job.status &#125;&#125;</span>.&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>而后，将代码推送到 github 仓库，我们进入仓库页面，点击 Actions 面板，看到 workflows 记录，进入详情看到类似面板。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/taoliujun/taoliujun.github.io/assets/202306281119773.png"></p>
+<p>这个面板展示了 lint.yml 这个工作流的执行状态，它列出所有的工作及其状态以及执行时间。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/taoliujun/taoliujun.github.io/assets/202306281120264.png"></p>
+<p>进入工作流的执行详情，可以看到每个工作的每一步脚本的详细执行过程和输出结果，就不一一表述了，后续会讲到。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taoliujun.github.io/blog/github-actions-quickStart/" data-id="cljpap0290001xbrrhwwa0hdt" data-title="1. Quickstart - GitHub Actions" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/ci/" rel="tag">ci</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/github-actions/" rel="tag">github actions</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Github Actions/0. Intro" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/github-actions-intro/" class="article-date">
+  <time class="dt-published" datetime="2022-07-02T16:00:00.000Z" itemprop="datePublished">2022-07-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/%E6%9E%B6%E6%9E%84/">架构</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog/github-actions-intro/">0. Intro - GitHub Actions</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>官方文档：<a target="_blank" rel="noopener" href="https://docs.github.com/en/actions">https://docs.github.com/en/actions</a></p>
+<p>之前依葫芦画瓢使用了 CI，并未对此做系统的了解，近期通读了一遍 Github Actions 文档，本系列文章是个人在 <a target="_blank" rel="noopener" href="https://docs.github.com/en/actions">https://docs.github.com/en/actions</a> 学习过程的杂乱记录，它是这样的：</p>
+<ul>
+<li>本文章系列不同于官方文档的中文翻译，只是加入个人理解的学习日记，内容不会完全覆盖。</li>
+<li>时间背景是 2022 年 7 月份。</li>
+<li>按照官方文档的顺序做了笔记，但忽略了个人认为不重要的部分。</li>
+<li>都是经验主义的理解，并且由于本人英文水平有限，会有理解出错的地方。</li>
+<li>部分理解也未基于代码实际运行结果，纯属经验和猜测。</li>
+<li>因为文档术语翻译往往词不达意，所以会有很多中英参杂。</li>
+</ul>
+<h2 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h2><p>既然你搜索到本文，想必是知道它是干什么的。我概括为：</p>
+<blockquote>
+<p>GitHub Actions 允许你在某些行为（比如 push master 分支）后，利用特定机器，执行脚本（比如 eslint check），并反馈结果形成一个 job。job 可以串起来，以完成更复杂的自动化操作。</p>
+</blockquote>
+<h2 id="和-CI-的关系"><a href="#和-CI-的关系" class="headerlink" title="和 CI 的关系"></a>和 CI 的关系</h2><p>CI&#x2F;CD 是执行自动化工作流的持续发布策略，它存在于 gitlab、github、jekins，甚至你在服务器上写了一个简单的计划任务拉取仓库代码后进行打包的脚本，也可以称之为 CI。</p>
+<p>在 github.com 上的 CI 就是 GitHub Actions，它提供了一组特定的环境变量、上下文、宿主机器。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taoliujun.github.io/blog/github-actions-intro/" data-id="cljpap0250000xbrr3far57p7" data-title="0. Intro - GitHub Actions" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/ci/" rel="tag">ci</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/github-actions/" rel="tag">github actions</a></li></ul>
 
     </footer>
   </div>
@@ -145,9 +591,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Kategorien</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E9%9A%8F%E6%83%B3/">随想</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%9E%B6%E6%9E%84/">架构</a></li></ul>
     </div>
   </div>
 
@@ -157,7 +603,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hello/" rel="tag">hello</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ci/" rel="tag">ci</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github-actions/" rel="tag">github actions</a></li></ul>
     </div>
   </div>
 
@@ -167,16 +613,16 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/hello/" style="font-size: 10px;">hello</a>
+      <a href="/blog/tags/ci/" style="font-size: 10px;">ci</a> <a href="/blog/tags/github-actions/" style="font-size: 10px;">github actions</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/12/">December 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/07/">July 2022</a></li></ul>
     </div>
   </div>
 
@@ -184,12 +630,28 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/blog/hello_post_title1/">你好世界</a>
+            <a href="/blog/github-actions-managing-workflow-runs/">6. Managing workflow runs - GitHub Actions</a>
+          </li>
+        
+          <li>
+            <a href="/blog/github-actions-using-jobs/">5. Using jobs - GitHub Actions</a>
+          </li>
+        
+          <li>
+            <a href="/blog/github-actions-using-workflows/">4. Using workflows - GitHub Actions</a>
+          </li>
+        
+          <li>
+            <a href="/blog/github-actions-examples/">3. Examples - GitHub Actions</a>
+          </li>
+        
+          <li>
+            <a href="/blog/github-actions-learn/">2. Learn GitHub Actions - GitHub Actions</a>
           </li>
         
       </ul>
