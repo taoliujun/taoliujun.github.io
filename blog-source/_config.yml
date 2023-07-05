@@ -4,11 +4,11 @@
 
 # Site
 title: TaoLiuJun's Blog
-subtitle: 只是记录学习心得
+subtitle: 记录学习心得
 description: "Html/Css/JavaScript/TypeScript的学习心得；React的学习心得；技术设计思想；生活随想；"
 keywords: "前端 JavaScript TypeScript React NodeJS"
 author: taoliujun
-language: zh-CN
+language: zh-Hans
 timezone: "Asia/Shanghai"
 
 # URL
@@ -16,7 +16,7 @@ timezone: "Asia/Shanghai"
 url: https://taoliujun.github.io/blog
 root: /blog/
 # permalink: :year/:month/:day/:title/
-permalink: :title/
+permalink: :title_url/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
