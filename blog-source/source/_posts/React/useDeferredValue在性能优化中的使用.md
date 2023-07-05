@@ -5,7 +5,7 @@ date: 2022-09-01
 tags:
   - react
 categories:
-  - react
+  - [React]
 ---
 
 ## 一个卡顿场景

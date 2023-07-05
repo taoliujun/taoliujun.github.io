@@ -5,7 +5,7 @@ date: 2022-09-05
 tags:
   - react
 categories:
-  - react
+  - [React]
 ---
 
 `useTransition` is a React Hook that lets you update the state without blocking the UI.
