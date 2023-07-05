@@ -1,6 +1,6 @@
 ---
-title: 从Radix看如何优雅写组件
-title_url: how-to-write-components-elegantly-from-radix
+title: 从Radix看如何优雅的写组件
+url: 前端/write_component_with_radix
 date: 2023-06-27
 tags:
   - radix

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>6. GitHub Actions - Managing workflow runs | TaoLiuJun&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="官方文档：https:&#x2F;&#x2F;docs.github.com&#x2F;en&#x2F;actions&#x2F;using-workflows&#x2F;manually-running-a-workflow 手动执行设置event包含workflow_dispatch，可以手动触发，使用 Github CLI、Browser 都可以，文档中呈现了一个流程图示例。 重复执行无 取消执行无 审批执行对于 pull request，可以设置审">
+<meta property="og:type" content="article">
+<meta property="og:title" content="6. GitHub Actions - Managing workflow runs">
+<meta property="og:url" content="https://taoliujun.github.io/blog/GitHub_Actions/managing_workflow_runs/index.html">
+<meta property="og:site_name" content="TaoLiuJun&#39;s Blog">
+<meta property="og:description" content="官方文档：https:&#x2F;&#x2F;docs.github.com&#x2F;en&#x2F;actions&#x2F;using-workflows&#x2F;manually-running-a-workflow 手动执行设置event包含workflow_dispatch，可以手动触发，使用 Github CLI、Browser 都可以，文档中呈现了一个流程图示例。 重复执行无 取消执行无 审批执行对于 pull request，可以设置审">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-07-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-07-05T07:43:02.877Z">
+<meta property="article:author" content="taoliujun">
+<meta property="article:tag" content="github actions">
+<meta property="article:tag" content="ci">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="TaoLiuJun's Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">TaoLiuJun&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">陶留军的个人博客</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/blog/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://taoliujun.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Github Actions/6. Managing workflow runs" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/GitHub_Actions/managing_workflow_runs/" class="article-date">
+  <time class="dt-published" datetime="2022-07-08T16:00:00.000Z" itemprop="datePublished">2022-07-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/%E6%9E%B6%E6%9E%84/">架构</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      6. GitHub Actions - Managing workflow runs
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>官方文档：<a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/using-workflows/manually-running-a-workflow">https://docs.github.com/en/actions/using-workflows/manually-running-a-workflow</a></p>
+<h2 id="手动执行"><a href="#手动执行" class="headerlink" title="手动执行"></a>手动执行</h2><p>设置<code>event</code>包含<code>workflow_dispatch</code>，可以手动触发，使用 Github CLI、Browser 都可以，文档中呈现了一个流程图示例。</p>
+<h2 id="重复执行"><a href="#重复执行" class="headerlink" title="重复执行"></a>重复执行</h2><p>无</p>
+<h2 id="取消执行"><a href="#取消执行" class="headerlink" title="取消执行"></a>取消执行</h2><p>无</p>
+<h2 id="审批执行"><a href="#审批执行" class="headerlink" title="审批执行"></a>审批执行</h2><p>对于 pull request，可以设置审批执行以防止浪费 actions 资源。</p>
+<h2 id="审查部署"><a href="#审查部署" class="headerlink" title="审查部署"></a>审查部署</h2><p>无</p>
+<h2 id="开关-workflow"><a href="#开关-workflow" class="headerlink" title="开关 workflow"></a>开关 workflow</h2><p>无</p>
+<h2 id="跳过-workflow"><a href="#跳过-workflow" class="headerlink" title="跳过 workflow"></a>跳过 workflow</h2><p>在 commit message 中加入关键词可以跳过 workflow，只对 push、pull_request 事件有效。关键词有：</p>
+<ul>
+<li>[skip ci]</li>
+<li>[ci skip]</li>
+<li>[no ci]</li>
+<li>[skip actions]</li>
+<li>[actions skip]</li>
+</ul>
+<p>也可以在 message 后空两行，然后加入关键词：</p>
+<ul>
+<li>skip-checks:true</li>
+<li>skip-checks: true</li>
+</ul>
+<h2 id="删除-workflow"><a href="#删除-workflow" class="headerlink" title="删除 workflow"></a>删除 workflow</h2><p>无</p>
+<h2 id="下载-workflow-归档"><a href="#下载-workflow-归档" class="headerlink" title="下载 workflow 归档"></a>下载 workflow 归档</h2><p>可以下载 90 天内的 workflow 归档，操作参考文档。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taoliujun.github.io/blog/GitHub_Actions/managing_workflow_runs/" data-id="cljpf1ku8001imtrrfv5fa5lz" data-title="6. GitHub Actions - Managing workflow runs" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/ci/" rel="tag">ci</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/github-actions/" rel="tag">github actions</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/React/useDeferredValue/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          useDeferredValue在性能优化中的使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/GitHub_Actions/using_jobs/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">5. GitHub Actions - Using jobs</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/React/">React</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%9E%B6%E6%9E%84/">架构</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ci/" rel="tag">ci</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github-actions/" rel="tag">github actions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/promise/" rel="tag">promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/proxy/" rel="tag">proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/radix/" rel="tag">radix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react/" rel="tag">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/reflect/" rel="tag">reflect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/set/" rel="tag">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/symbol/" rel="tag">symbol</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%BB%84%E4%BB%B6/" rel="tag">组件</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/ci/" style="font-size: 16.67px;">ci</a> <a href="/blog/tags/github-actions/" style="font-size: 16.67px;">github actions</a> <a href="/blog/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/blog/tags/promise/" style="font-size: 10px;">promise</a> <a href="/blog/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/blog/tags/radix/" style="font-size: 10px;">radix</a> <a href="/blog/tags/react/" style="font-size: 13.33px;">react</a> <a href="/blog/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/blog/tags/set/" style="font-size: 10px;">set</a> <a href="/blog/tags/symbol/" style="font-size: 10px;">symbol</a> <a href="/blog/tags/%E7%BB%84%E4%BB%B6/" style="font-size: 10px;">组件</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/07/">July 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/%E5%89%8D%E7%AB%AF/write_component_with_radix/">从Radix看如何优雅的写组件</a>
+          </li>
+        
+          <li>
+            <a href="/blog/JavaScript/Reflect_And_Object/">Reflect和Object的关系</a>
+          </li>
+        
+          <li>
+            <a href="/blog/JavaScript/using_Proxy/">Proxy的应用场景</a>
+          </li>
+        
+          <li>
+            <a href="/blog/JavaScript/Map/">Map真的挺好的</a>
+          </li>
+        
+          <li>
+            <a href="/blog/JavaScript/Set/">Set真的挺好的</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 taoliujun<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
