@@ -4,6 +4,7 @@ url: React/useDeferredValue
 date: 2022-09-01
 tags:
   - react
+  - useDeferredValue
 categories:
   - [React]
 ---

@@ -4,6 +4,7 @@ url: JavaScript/es6_destructuring_assignment
 date: 2023-03-03
 tags:
   - javascript
+  - 解构赋值
 categories:
   - [JavaScript]
 ---

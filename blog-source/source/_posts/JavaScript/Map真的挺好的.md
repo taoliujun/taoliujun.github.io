@@ -4,6 +4,7 @@ url: JavaScript/Map
 date: 2023-03-07
 tags:
   - javascript
+  - map
 categories:
   - [JavaScript]
 ---
