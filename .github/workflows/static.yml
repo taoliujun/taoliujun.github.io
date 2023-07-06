@@ -36,7 +36,7 @@ jobs:
       - name: Organize files
         run: |
           mkdir _tar
-          cp -r index.html _tar
+          cp -r README.md _tar
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
